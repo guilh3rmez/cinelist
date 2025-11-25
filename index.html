@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineList JS</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #111; color: white; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1, h2 { text-align: center; color: #e50914; } /* Vermelho Netflix */
+        
+        /* Busca */
+        .busca-box { display: flex; gap: 10px; margin-bottom: 30px; }
+        input { flex: 1; padding: 15px; border-radius: 5px; border: none; font-size: 1.1rem; }
+        button { padding: 15px 30px; background: #e50914; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        button:hover { background: #b20710; }
+
+        /* Grelha de Filmes */
+        .grid-filmes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
+        
+        .filme-card { background: #222; border-radius: 10px; overflow: hidden; transition: transform 0.2s; position: relative; }
+        .filme-card:hover { transform: scale(1.05); z-index: 10; }
+        .filme-card img { width: 100%; height: 225px; object-fit: cover; }
+        .filme-info { padding: 10px; }
+        .filme-titulo { font-size: 0.9rem; font-weight: bold; margin-bottom: 5px; }
+        .btn-fav { width: 100%; padding: 5px; background: #333; color: white; border: none; cursor: pointer; margin-top: 5px; border-radius: 3px; }
+        .btn-fav.ativo { background: #e50914; } /* Estilo quando já é favorito */
+
+        /* Área de Favoritos */
+        .favoritos-section { margin-top: 50px; border-top: 1px solid #333; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CineList 🍿</h1>
+
+        <!-- BUSCA -->
+        <div class="busca-box">
+            <input type="text" id="busca-input" placeholder="Qual série procuras? (ex: Breaking Bad)">
+            <button onclick="buscarSeries()">Buscar</button>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div id="lista-resultados" class="grid-filmes">
+            <!-- O JS vai injetar os filmes aqui -->
+        </div>
+
+        <!-- FAVORITOS -->
+        <div class="favoritos-section">
+            <h2>Meus Favoritos ❤️</h2>
+            <div id="lista-favoritos" class="grid-filmes">
+                <!-- Os favoritos salvos aparecem aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
